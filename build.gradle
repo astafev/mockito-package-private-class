@@ -1,0 +1,19 @@
+group 'test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.mockito:mockito-all:1.10.19'
+}
+
+task testWithMainClass(dependsOn: build, type:JavaExec) {
+    main = "ru.astafev.test.mockito.TestClass"
+    classpath = sourceSets.main.runtimeClasspath
+}
